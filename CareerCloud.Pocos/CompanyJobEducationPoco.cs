@@ -23,7 +23,7 @@ namespace CareerCloud.Pocos
 
         public Int16 Importance { get; set; }
 
-        public virtual CompanyJobPoco CompanyJob { get; set;}
+        public virtual CompanyJobPoco CompanyJobs { get; set;}
 
     }
 }

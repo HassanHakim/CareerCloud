@@ -40,6 +40,6 @@ namespace CareerCloud.Pocos
 
         public string Skill { get; set; }
 
-        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
+        public virtual ApplicantProfilePoco ApplicantProfiles { get; set; }
     }
 }

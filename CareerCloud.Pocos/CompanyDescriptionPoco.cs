@@ -26,11 +26,10 @@ namespace CareerCloud.Pocos
         public Guid Company { get; set; }
         public string LanguageId { get; set; }
 
-        //[NotMapped]
-        public virtual CompanyProfilePoco CompanyProfile{get; set;}
+       
+        public virtual CompanyProfilePoco CompanyProfiles{get; set;}
 
-        //    [NotMapped]
-        public virtual SystemLanguageCodePoco SystemLanguageCode {get; set;}
+        public virtual SystemLanguageCodePoco SystemLanguageCodes {get; set;}
 
     }
 }
