@@ -39,5 +39,7 @@ namespace CareerCloud.Pocos
         public Guid Applicant { get; set; }
 
         public string Skill { get; set; }
+
+        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
     }
 }

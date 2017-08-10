@@ -43,7 +43,10 @@ namespace CareerCloud.Pocos
 
         public Guid Applicant { get; set; }
 
-        public string Location { get; set; }   
+        public string Location { get; set; }
+
+        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
+        public virtual SystemCountryCodePoco SystemCountryCode { get; set; }
 
     }
 }

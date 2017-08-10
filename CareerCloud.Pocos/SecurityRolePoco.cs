@@ -18,5 +18,7 @@ namespace CareerCloud.Pocos
         public bool IsInactive { get; set; }
 
         public string Role { get; set; }
+
+        public virtual ICollection<SecurityLoginsRolePoco> SecurityLoginsRoles { get; set; }
     }
 }

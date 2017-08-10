@@ -33,6 +33,8 @@ namespace CareerCloud.Pocos
         public Guid Applicant { get; set; }
 
         public string Major { get; set; }
+
+        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
  
     }
 }

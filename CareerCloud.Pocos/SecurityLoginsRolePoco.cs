@@ -20,6 +20,10 @@ namespace CareerCloud.Pocos
 
         public Guid Login { get; set; }
         public Guid Role { get; set; }
+        
+        public virtual SecurityLoginPoco SecurityLogin { get; set; }
+        public  virtual SecurityLoginsRolePoco SecurityLoginsRole { get; set; }
+
 
     }
 }

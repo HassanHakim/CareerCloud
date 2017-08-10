@@ -3,3 +3,9 @@
 ################################################################################
 
 /CareerCloud.ADODataAccessLayer/bin/Debug
+/CareerCloud.BusinessLogicLayer/bin/Debug
+/CareerCloud.BusinessLogicLayer/bin/Debug
+/CareerCloud.BusinessLogicLayer/obj/Debug
+/CareerCloud.ADODataAccessLayer/obj/Debug
+/CareerCloud.EntityFrameworkDataAccess/obj/Debug
+/.vs/CareerCloud/v15
