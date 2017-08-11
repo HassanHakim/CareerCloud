@@ -11,6 +11,12 @@ namespace CareerCloud.Pocos
     [Table("Security_Logins")]
     public class SecurityLoginPoco : IPoco
     {
+        public SecurityLoginPoco()
+        {
+            ApplicantProfiles = new HashSet<ApplicantProfilePoco>();
+            SecurityLoginsLogs = new HashSet<SecurityLoginsLogPoco>();
+            SecurityLoginsRoles = new HashSet<SecurityLoginsRolePoco>();
+        }
         [Key]
         public Guid Id { get; set; }
 

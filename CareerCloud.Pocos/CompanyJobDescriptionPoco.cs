@@ -25,6 +25,6 @@ namespace CareerCloud.Pocos
       
         public Guid Job { get; set; }
 
-        public virtual CompanyJobPoco CompanyJobs { get; set; }
+        public virtual CompanyJobPoco CompanyJob { get; set; }
     }
 }

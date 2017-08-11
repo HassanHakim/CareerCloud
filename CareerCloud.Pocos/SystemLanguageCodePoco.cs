@@ -11,6 +11,10 @@ namespace CareerCloud.Pocos
     [Table("System_Language_Codes")]
     public class SystemLanguageCodePoco 
     {
+        public SystemLanguageCodePoco()
+        {
+            CompanyDescriptions = new HashSet<CompanyDescriptionPoco>();
+        }
         [Key]
         public string LanguageID { get; set; }
         

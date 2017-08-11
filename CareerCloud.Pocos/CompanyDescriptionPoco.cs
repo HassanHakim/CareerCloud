@@ -27,9 +27,9 @@ namespace CareerCloud.Pocos
         public string LanguageId { get; set; }
 
        
-        public virtual CompanyProfilePoco CompanyProfiles{get; set;}
+        public virtual CompanyProfilePoco CompanyProfile{get; set;}
 
-        public virtual SystemLanguageCodePoco SystemLanguageCodes {get; set;}
+        public virtual SystemLanguageCodePoco SystemLanguageCode {get; set;}
 
     }
 }

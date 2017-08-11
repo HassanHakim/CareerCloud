@@ -11,6 +11,14 @@ namespace CareerCloud.Pocos
     [Table("Company_Jobs")]
     public class CompanyJobPoco : IPoco
     {
+        public CompanyJobPoco()
+        {
+            ApplicantJobApplications = new HashSet<ApplicantJobApplicationPoco>();
+            CompanyJobEducations = new HashSet<CompanyJobEducationPoco>();
+            CompanyJobSkills = new HashSet<CompanyJobSkillPoco>();
+            CompanyJobDescriptions = new HashSet<CompanyJobDescriptionPoco>();
+        }
+
         [Key]
         public Guid Id { get; set; }
 
@@ -32,7 +40,7 @@ namespace CareerCloud.Pocos
         public virtual ICollection<CompanyJobDescriptionPoco> CompanyJobDescriptions { get; set; }
         public virtual ICollection<CompanyJobSkillPoco> CompanyJobSkills { get; set; }
         public virtual ICollection<ApplicantJobApplicationPoco> ApplicantJobApplications { get; set; }
-        public virtual CompanyProfilePoco CompanyProfiles{ get; set; }
+        public virtual CompanyProfilePoco CompanyProfile{ get; set; }
 
     }
 }

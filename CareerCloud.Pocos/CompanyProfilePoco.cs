@@ -11,6 +11,12 @@ namespace CareerCloud.Pocos
     [Table("Company_Profiles")]
     public class CompanyProfilePoco : IPoco
     {
+        public CompanyProfilePoco()
+        {
+            CompanyDescriptions = new HashSet<CompanyDescriptionPoco>();
+            CompanyJobs = new HashSet<CompanyJobPoco>();
+            CompanyLocations = new HashSet<CompanyLocationPoco>();
+        }
         [Key]
         public Guid Id { get; set; }
 

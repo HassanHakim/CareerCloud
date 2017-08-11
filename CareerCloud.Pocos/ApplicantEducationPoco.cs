@@ -34,7 +34,7 @@ namespace CareerCloud.Pocos
 
         public string Major { get; set; }
 
-        public virtual ApplicantProfilePoco ApplicantProfiles { get; set; }
+        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
  
     }
 }

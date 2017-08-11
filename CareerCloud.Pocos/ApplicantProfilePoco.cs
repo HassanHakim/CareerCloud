@@ -11,6 +11,14 @@ namespace CareerCloud.Pocos
     [Table ("Applicant_Profiles")]
     public class ApplicantProfilePoco : IPoco
     {
+        public ApplicantProfilePoco()
+        {
+            ApplicantEducations = new HashSet<ApplicantEducationPoco>();
+            ApplicantJobApplications = new HashSet<ApplicantJobApplicationPoco>();
+            ApplicantResumes = new HashSet<ApplicantResumePoco>();
+            ApplicantSkills = new HashSet<ApplicantSkillPoco>();
+            ApplicantWorkHistory = new HashSet<ApplicantWorkHistoryPoco>();
+        }
         [Key]
         public Guid Id { get; set; }
 
@@ -42,8 +50,8 @@ namespace CareerCloud.Pocos
 
         public string Currency { get; set; }
 
-        public virtual SystemCountryCodePoco SystemCountryCodes { get; set; }
-        public virtual SecurityLoginPoco SecurityLogins { get; set; }
+        public virtual SystemCountryCodePoco SystemCountryCode { get; set; }
+        public virtual SecurityLoginPoco SecurityLogin { get; set; }
 
         public virtual ICollection<ApplicantEducationPoco> ApplicantEducations { get; set; }
         public virtual ICollection<ApplicantResumePoco> ApplicantResumes { get; set; }
