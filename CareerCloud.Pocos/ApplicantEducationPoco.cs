@@ -30,6 +30,7 @@ namespace CareerCloud.Pocos
         [Column("Time_Stamp")]
         public byte[] TimeStamp { get; set; }
 
+      //  [ForeignKey("ApplicantProfile")]
         public Guid Applicant { get; set; }
 
         public string Major { get; set; }

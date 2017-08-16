@@ -11,8 +11,9 @@ namespace CareerCloud.EntityFrameworkDataAccess
 {
     public class CareerCloudContext : DbContext
     {
-        public CareerCloudContext() 
-            : base (ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString)
+        public CareerCloudContext()
+               : base (ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString)      
+             //: base("name = dbconnection")
         {
             this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
@@ -40,16 +41,20 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<CompanyDescriptionPoco>().Ignore(c => c.SystemLanguageCodes);
+            #region Applicant_Educations
+            modelBuilder.Entity<ApplicantEducationPoco>()
+            .Property(e => e.TimeStamp)
+            .IsRowVersion()
+            .IsFixedLength();
+            #endregion
 
-            //      modelBuilder.Entity<Applicant_Educations>()
-            //.Property(e => e.Time_Stamp)
-            //.IsFixedLength();
+            #region Applicant_Job_Applications
+            modelBuilder.Entity<ApplicantJobApplicationPoco>()
+                .Property(e => e.TimeStamp)
+                .IsRowVersion()
+                .IsFixedLength();
+            #endregion
 
-            //      modelBuilder.Entity<Applicant_Job_Applications>()
-            //          .Property(e => e.Time_Stamp)
-            //          .IsFixedLength();
-         
             #region Applicant Profile
             modelBuilder.Entity<ApplicantProfilePoco>()
                 .Property(e => e.CurrentSalary)
@@ -77,6 +82,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
             modelBuilder.Entity<ApplicantProfilePoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
 
             modelBuilder.Entity<ApplicantProfilePoco>()
@@ -118,6 +124,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
             modelBuilder.Entity<ApplicantSkillPoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
             #endregion
 
@@ -129,6 +136,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
                   modelBuilder.Entity<ApplicantWorkHistoryPoco>()
                       .Property(e => e.TimeStamp)
+                      .IsRowVersion()
                       .IsFixedLength();
             #endregion
 
@@ -140,24 +148,28 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
             modelBuilder.Entity<CompanyDescriptionPoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
             #endregion
 
             #region Company Job Descriptions
             modelBuilder.Entity<CompanyJobDescriptionPoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
             #endregion
 
             #region Company Job Education
             modelBuilder.Entity<CompanyJobEducationPoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
             #endregion
 
             #region Company Jobs
             modelBuilder.Entity<CompanyJobPoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
 
             modelBuilder.Entity<CompanyJobPoco>()
@@ -192,6 +204,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
             modelBuilder.Entity<CompanyJobSkillPoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
             #endregion
 
@@ -213,6 +226,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
             modelBuilder.Entity<CompanyLocationPoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
             #endregion
 
@@ -228,6 +242,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
                 .IsUnicode(false);
             modelBuilder.Entity<CompanyProfilePoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
 
             modelBuilder.Entity<CompanyProfilePoco>()
@@ -275,6 +290,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
             modelBuilder.Entity<SecurityLoginPoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
 
             modelBuilder.Entity<SecurityLoginPoco>()
@@ -306,6 +322,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
             #region Security Logins Roles
             modelBuilder.Entity<SecurityLoginsRolePoco>()
                 .Property(e => e.TimeStamp)
+                .IsRowVersion()
                 .IsFixedLength();
             #endregion
 
