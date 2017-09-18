@@ -3,3 +3,4 @@ C:\Users\Hassan\Documents\Visual Studio 2017\Projects\CareerCloud\CareerCloud.Po
 C:\Users\Hassan\Documents\Visual Studio 2017\Projects\CareerCloud\CareerCloud.Pocos\obj\Debug\CareerCloud.Pocos.dll
 C:\Users\Hassan\Documents\Visual Studio 2017\Projects\CareerCloud\CareerCloud.Pocos\obj\Debug\CareerCloud.Pocos.pdb
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.Pocos\obj\Debug\CareerCloud.Pocos.csprojResolveAssemblyReference.cache
+C:\Users\Hassan\Documents\Visual Studio 2017\Projects\CareerCloud\CareerCloud.Pocos\obj\Debug\CareerCloud.Pocos.csproj.CoreCompileInputs.cache

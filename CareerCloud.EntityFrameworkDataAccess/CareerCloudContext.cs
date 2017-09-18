@@ -11,11 +11,12 @@ namespace CareerCloud.EntityFrameworkDataAccess
 {
     public class CareerCloudContext : DbContext
     {
-        public CareerCloudContext()
+        public CareerCloudContext(bool createProxy = true)
                : base (ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString)      
              //: base("name = dbconnection")
         {
             this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+            this.Configuration.ProxyCreationEnabled = createProxy;
         }
 
         public DbSet<ApplicantEducationPoco> ApplicantEducation { get; set; }

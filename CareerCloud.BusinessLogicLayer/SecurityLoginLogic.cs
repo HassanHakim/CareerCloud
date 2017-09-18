@@ -30,6 +30,7 @@ namespace CareerCloud.BusinessLogicLayer
         public override void Add(SecurityLoginPoco[] pocos)
         {
             Verify(pocos);
+            
             foreach (SecurityLoginPoco poco in pocos)
             {
                 poco.Password = ComputeHash(poco.Password, new byte[saltLengthLimit]);
@@ -39,6 +40,7 @@ namespace CareerCloud.BusinessLogicLayer
                 poco.ForceChangePassword = true;
                 poco.PasswordUpdate = poco.Created.AddDays(30);
             }
+            
             base.Add(pocos);
         }
 
@@ -65,12 +67,14 @@ namespace CareerCloud.BusinessLogicLayer
                     exceptions.Add(new ValidationException(700,
                         $"Password for SecurityLogin {poco.Id} must be at least 10 characters."));
                 }
+                /*
                 else if (!requiredExtendedPasswordChars.Any(
                     t => t == poco.Password.Substring(poco.Password.Length - t.Length)))
                 {
                     exceptions.Add(new ValidationException(701,
                         $"Password for SecurityLogin {poco.Id} must contain an extended character of '$', '*', '#', '_' or '@' ."));
                 }
+                */
 
                 if (string.IsNullOrEmpty(poco.PhoneNumber))
                 {

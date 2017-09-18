@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,9 @@ namespace CareerCloud.EntityFrameworkDataAccess
     public class EFGenericRepository<T> : IDataRepository<T> where T : class
     {
         private CareerCloudContext _context;
-        public EFGenericRepository()
+        public EFGenericRepository(bool createProxy = true)
         {
-            _context = new CareerCloudContext();
+            _context = new CareerCloudContext(createProxy);
         }
         public void Add(params T[] items)
         {
@@ -76,7 +77,17 @@ namespace CareerCloud.EntityFrameworkDataAccess
             {
                 _context.Entry(item).State = EntityState.Modified;
             }
-            _context.SaveChanges();
+        
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Update original values from the database 
+                var entry = ex.Entries.Single();
+                entry.OriginalValues.SetValues(entry.GetDatabaseValues());
+            }
         }
     }
 }
