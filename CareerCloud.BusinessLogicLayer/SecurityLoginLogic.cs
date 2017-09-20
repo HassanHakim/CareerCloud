@@ -67,14 +67,13 @@ namespace CareerCloud.BusinessLogicLayer
                     exceptions.Add(new ValidationException(700,
                         $"Password for SecurityLogin {poco.Id} must be at least 10 characters."));
                 }
-                /*
+                
                 else if (!requiredExtendedPasswordChars.Any(
                     t => t == poco.Password.Substring(poco.Password.Length - t.Length)))
                 {
                     exceptions.Add(new ValidationException(701,
                         $"Password for SecurityLogin {poco.Id} must contain an extended character of '$', '*', '#', '_' or '@' ."));
-                }
-                */
+                }                
 
                 if (string.IsNullOrEmpty(poco.PhoneNumber))
                 {

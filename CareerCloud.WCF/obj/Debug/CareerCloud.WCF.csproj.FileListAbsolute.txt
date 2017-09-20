@@ -7,6 +7,7 @@ C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WC
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\CareerCloud.EntityFrameworkDataAccess.dll
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\CareerCloud.Pocos.dll
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\EntityFramework.dll
+C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\CareerCloud.ADODataAccessLayer.pdb
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\CareerCloud.BusinessLogicLayer.pdb
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\CareerCloud.DataAccessLayer.pdb
@@ -14,9 +15,8 @@ C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WC
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\CareerCloud.EntityFrameworkDataAccess.dll.config
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\CareerCloud.Pocos.pdb
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\EntityFramework.xml
+C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\obj\Debug\CareerCloud.WCF.csprojResolveAssemblyReference.cache
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\obj\Debug\CareerCloud.WCF.csproj.CoreCompileInputs.cache
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\obj\Debug\CareerCloud.WCF.dll
 C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\obj\Debug\CareerCloud.WCF.pdb
-C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Hassan\documents\visual studio 2017\Projects\CareerCloud\CareerCloud.WCF\bin\Debug\EntityFramework.SqlServer.xml
