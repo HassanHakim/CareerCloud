@@ -12,18 +12,30 @@ namespace CareerCloud.EntityFrameworkDataAccess
 {
     public class EFGenericRepository<T> : IDataRepository<T> where T : class
     {
-        private CareerCloudContext _context;
+        // To Do: 
+        // 1. Enclose the _context in using {} to call dispose() -- done
+        // 2. Return Ids of records added 
+
+        // private CareerCloudContext _context;
+        private bool _createProxy = true;
+
         public EFGenericRepository(bool createProxy = true)
         {
-            _context = new CareerCloudContext(createProxy);
+            _createProxy = createProxy;
+           // _context = new CareerCloudContext(createProxy);
         }
+
+        // return Ids of records added
         public void Add(params T[] items)
         {
-            foreach (var item in items)
-            {              
-                _context.Entry(item).State = EntityState.Added;
-            }
-            _context.SaveChanges();
+            using (var context = new  CareerCloudContext(_createProxy))
+                { 
+                    foreach (var item in items)
+                    {
+                        context.Entry(item).State = EntityState.Added;
+                    }
+                    context.SaveChanges();
+                }
         }
 
         public void CallStoredProc(string name, params Tuple<string, string>[] parameters)
@@ -33,60 +45,71 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
         public IList<T> GetAll(params System.Linq.Expressions.Expression<Func<T, object>>[] navigationProperties)
         {
-            IQueryable<T> dbQuery = _context.Set<T>();
-            foreach (var navigationProperty in navigationProperties)
+            IList<T> result; 
+            using (var context = new CareerCloudContext(_createProxy))
             {
-                dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                IQueryable<T> dbQuery = context.Set<T>();
+                foreach (var navigationProperty in navigationProperties)
+                {
+                    dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                }
+                result = dbQuery.ToList();
             }
-            return dbQuery.ToList();
+            return result;
         }
 
         public IList<T> GetList(Func<T, bool> where, params System.Linq.Expressions.Expression<Func<T, object>>[] navigationProperties)
         {
-            IQueryable<T> dbQuery = _context.Set<T>();
-            foreach (var navigationProperty in navigationProperties)
+            IList<T> result;
+            using (var context = new CareerCloudContext(_createProxy))
             {
-                dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                IQueryable<T> dbQuery = context.Set<T>();
+                foreach (var navigationProperty in navigationProperties)
+                {
+                    dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                }
+                result = dbQuery.AsNoTracking().Where(where).ToList<T>(); 
             }
-            return dbQuery.AsNoTracking().Where(where).ToList<T>();
+            return result;
         }
 
         public T GetSingle(Func<T, bool> where, params System.Linq.Expressions.Expression<Func<T, object>>[] navigationProperties)
         {
-            IQueryable<T> dbQuery = _context.Set<T>();
-            foreach (var navigationProperty in navigationProperties)
+            T result;
+            using (var context = new CareerCloudContext(_createProxy))
             {
-                dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                IQueryable<T> dbQuery = context.Set<T>();
+                foreach (var navigationProperty in navigationProperties)
+                {
+                    dbQuery = dbQuery.Include<T, object>(navigationProperty);
+                }
+                result = dbQuery.AsNoTracking().FirstOrDefault(where);
             }
-            return dbQuery.AsNoTracking().FirstOrDefault(where);
+            return result;
         }
 
         public void Remove(params T[] items)
         {
-            foreach (T item in items)
+            using (var context = new CareerCloudContext(_createProxy))
             {
-                _context.Entry(item).State = EntityState.Deleted;
+                foreach (T item in items)
+                {
+                    context.Entry(item).State = EntityState.Deleted;
+                }
+                context.SaveChanges();
             }
-            _context.SaveChanges();
             
         }
 
         public void Update(params T[] items)
         {
-            foreach (T item in items)
+            using (var context = new CareerCloudContext(_createProxy))
             {
-                _context.Entry(item).State = EntityState.Modified;
-            }
-        
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                // Update original values from the database 
-                var entry = ex.Entries.Single();
-                entry.OriginalValues.SetValues(entry.GetDatabaseValues());
+                foreach (T item in items)
+                {
+                    context.Entry(item).State = EntityState.Modified;
+                }
+                context.SaveChanges();             
             }
         }
     }
