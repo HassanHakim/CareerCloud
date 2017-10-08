@@ -23,8 +23,8 @@ namespace CareerCloud.WebAPI.Controllers
         }
         [HttpGet]
         [Route("LoginsLog/{SecurityLoginsLogId}")]
-        [ResponseType(typeof(SecurityLoginsLogPoco))]
-        public IHttpActionResult GetSecurityLoginsLog(Guid SecurityLoginsLogId)
+        [ResponseType(typeof(SecurityLoginsLogPoco))]                                
+        public IHttpActionResult GetSecurityLoginLog(Guid SecurityLoginsLogId)
         {
             SecurityLoginsLogPoco securityLoginsLog = _logic.Get(SecurityLoginsLogId);
             if (securityLoginsLog == null)
@@ -37,7 +37,7 @@ namespace CareerCloud.WebAPI.Controllers
         [HttpGet]
         [Route("LoginsLog")]
         [ResponseType(typeof(List<SecurityLoginsLogPoco>))]
-        public IHttpActionResult GetAllSecurityLoginsLog()
+        public IHttpActionResult GetAllSecurityLoginLog()
         {
             var securityLoginsLogList = _logic.GetAll();
             if (securityLoginsLogList == null)
@@ -50,7 +50,7 @@ namespace CareerCloud.WebAPI.Controllers
 
         [HttpPost]
         [Route("LoginsLog")]
-        public IHttpActionResult PostSecurityLoginsLog([FromBody] SecurityLoginsLogPoco[] SecurityLoginsLogs)
+        public IHttpActionResult PostSecurityLoginLog([FromBody] SecurityLoginsLogPoco[] SecurityLoginsLogs)
         {
             _logic.Add(SecurityLoginsLogs);
             return Ok();
@@ -59,7 +59,7 @@ namespace CareerCloud.WebAPI.Controllers
 
         [HttpPut]
         [Route("LoginsLog")]
-        public IHttpActionResult PutSecurityLoginsLog([FromBody] SecurityLoginsLogPoco[] SecurityLoginsLogs)
+        public IHttpActionResult PutSecurityLoginLog([FromBody] SecurityLoginsLogPoco[] SecurityLoginsLogs)
         {
             _logic.Update(SecurityLoginsLogs);
             return Ok();
@@ -67,9 +67,9 @@ namespace CareerCloud.WebAPI.Controllers
 
         [HttpDelete]
         [Route("LoginsLog")]
-        public IHttpActionResult DeleteSecurityLoginsLog([FromBody] SecurityLoginsLogPoco[] SecurityLoginsLogs)
+        public IHttpActionResult DeleteSecurityLoginLog([FromBody] SecurityLoginsLogPoco[] SecurityLoginsLogs)
         {
-            _logic.Update(SecurityLoginsLogs);
+            _logic.Delete(SecurityLoginsLogs);
             return Ok();
         }
     }

@@ -70,7 +70,7 @@ namespace CareerCloud.WebAPI.Controllers
         [Route("Role")]
         public IHttpActionResult DeleteSecurityRole([FromBody] SecurityRolePoco[] SecurityRoles)
         {
-            _logic.Update(SecurityRoles);
+            _logic.Delete(SecurityRoles);
             return Ok();
         }
     }

@@ -70,7 +70,7 @@ namespace CareerCloud.WebAPI.Controllers
 
         [HttpDelete]
         [Route("Description")]
-        public IHttpActionResult DeleteCompanyDescription2222([FromBody] CompanyDescriptionPoco[] companyDescription)
+        public IHttpActionResult DeleteCompanyDescription([FromBody] CompanyDescriptionPoco[] companyDescription)
         {
             _logic.Delete(companyDescription);
             return Ok();

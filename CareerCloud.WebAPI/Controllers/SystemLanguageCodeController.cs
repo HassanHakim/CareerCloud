@@ -70,7 +70,7 @@ namespace CareerCloud.WebAPI.Controllers
         [Route("LanguageCode")]
         public IHttpActionResult DeleteSystemLanguageCode([FromBody] SystemLanguageCodePoco[] SystemLanguageCodes)
         {
-            _logic.Update(SystemLanguageCodes);
+            _logic.Delete(SystemLanguageCodes);
             return Ok();
         }
     }

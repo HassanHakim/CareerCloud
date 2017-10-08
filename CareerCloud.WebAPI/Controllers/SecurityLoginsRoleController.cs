@@ -49,8 +49,8 @@ namespace CareerCloud.WebAPI.Controllers
 
 
         [HttpPost]
-        [Route("LoginsRole")]
-        public IHttpActionResult PostSecurityLoginsRole([FromBody] SecurityLoginsRolePoco[] SecurityLoginsRoles)
+        [Route("LoginsRole")]                                
+        public IHttpActionResult PostSecurityLoginRole([FromBody] SecurityLoginsRolePoco[] SecurityLoginsRoles)
         {
             _logic.Add(SecurityLoginsRoles);
             return Ok();
@@ -59,7 +59,7 @@ namespace CareerCloud.WebAPI.Controllers
 
         [HttpPut]
         [Route("LoginsRole")]
-        public IHttpActionResult PutSecurityLoginsRole([FromBody] SecurityLoginsRolePoco[] SecurityLoginsRoles)
+        public IHttpActionResult PutSecurityLoginRole([FromBody] SecurityLoginsRolePoco[] SecurityLoginsRoles)
         {
             _logic.Update(SecurityLoginsRoles);
             return Ok();
@@ -67,7 +67,7 @@ namespace CareerCloud.WebAPI.Controllers
 
         [HttpDelete]
         [Route("LoginsRole")]
-        public IHttpActionResult DeleteSecurityLoginsRole([FromBody] SecurityLoginsRolePoco[] SecurityLoginsRoles)
+        public IHttpActionResult DeleteSecurityLoginRole([FromBody] SecurityLoginsRolePoco[] SecurityLoginsRoles)
         {
             _logic.Delete(SecurityLoginsRoles);
             return Ok();
